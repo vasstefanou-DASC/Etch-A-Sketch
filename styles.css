@@ -1,0 +1,14 @@
+body {
+    background-color:hsla(43, 93%, 16%, 0.5);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: hsla(102, 86%, 17%, 0.90);
+    text-align:center;
+    border-bottom: 3px solid black;
+    margin: 0;
+    padding: 20px 0px;
+}

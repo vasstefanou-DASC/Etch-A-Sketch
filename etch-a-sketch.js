@@ -70,3 +70,22 @@ function clearSketch() {
 }
 const clearSketchButton = buttonsArea.children[1];
 clearSketchButton.addEventListener("click",clearSketch);
+
+function opacityMode() {
+    let boxes = sketchContainer.querySelectorAll(".box");
+    let startingOpacity = 0;
+    for (let box of boxes) {
+        box.addEventListener("mouseenter", () => {
+            if (startingOpacity<1) {
+                startingOpacity += 0.1;
+                box.style.backgroundColor = `hsla(182,100%,50%,${startingOpacity})`;
+            } else {
+                startingOpacity = 0.1;
+                box.style.backgroundColor = `hsla(182,100%,50%,${startingOpacity})`;
+            }
+        });
+    }
+}
+
+const opacityModeButton = buttonsArea.children[3];
+opacityModeButton.addEventListener("click",opacityMode);

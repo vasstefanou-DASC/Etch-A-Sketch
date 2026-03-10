@@ -5,7 +5,7 @@ document.body.appendChild(projectName);
 
 const buttonsArea = document.createElement("div");
 buttonsArea.classList.add("parts");
-const buttonNames = ["Choose your grid","Same Color","Random Color","Opacity Mode"];
+const buttonNames = ["Choose your grid","Clear Sketch","Random Color","Opacity Mode"];
 for (let i=0;i<4;i++) {
     const button = document.createElement("button");
     button.textContent = buttonNames[i];
@@ -50,3 +50,23 @@ newGridButton.addEventListener("click", () => {
     }
 });
 
+function repaintRandom() {
+    let boxes = sketchContainer.querySelectorAll(".box");
+    for (let box of boxes) {
+        let randomColor = Math.floor(Math.random()*360);
+        box.addEventListener("mouseenter", () => {
+            box.style.backgroundColor = `hsla(${randomColor},100%,50%)`;
+        });
+    }
+}
+const randomColorButton = buttonsArea.children[2];
+randomColorButton.addEventListener("click", repaintRandom);
+
+function clearSketch() {
+    let boxes = sketchContainer.querySelectorAll(".box");
+    boxes.forEach(box => {
+        box.style.backgroundColor = "hsl(0,0%,100%)";
+    });
+}
+const clearSketchButton = buttonsArea.children[1];
+clearSketchButton.addEventListener("click",clearSketch);
